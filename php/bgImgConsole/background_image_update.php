@@ -1,4 +1,6 @@
 <?php
+
+
 // 允许上传的图片后缀
 $allowedExts = array("gif", "jpeg", "jpg", "png");
 
@@ -41,20 +43,20 @@ if (
 			date_default_timezone_set('PRC');
 			echo "现在的服务器时间是：".date('Y-m-d H:i:s', time())."</br>";
 			$updatetime = date('YmdHis', time());
-			$fileURL = "../img/backgroundimage/" . $updatetime . "_" . $_FILES["file"]["name"];     //用一个下划线分割时间戳和处理过的图片原名
+			$fileURL = "../../img/backgroundimage/" . $updatetime . "_" . $_FILES["file"]["name"];     //用一个下划线分割时间戳和处理过的图片原名
+			$fileURL2 = "../img/backgroundimage/" . $updatetime . "_" . $_FILES["file"]["name"];     //用一个下划线分割时间戳和处理过的图片原名
 			
 			
 			
 			
-			
-			
+			echo "debug文件临时缓存" . $_FILES["file"]["tmp_name"];
 			move_uploaded_file($_FILES["file"]["tmp_name"], $fileURL);   // 从缓存中复制文件至 ../img/backgroundimage/
-			echo "文件存储在: " . $fileURL;
+			echo "文件存储在: " . $fileURL. "<br>";
 			
 			
 // 下方开始php连接数据库部分  ————————————————————————————————————————————————————————————
 			
-			$servername = "localhost";
+			$servername = "localhost:3308";
 			$username = "backGroundImageChecker";
 			$password = "CODE001(daoragong)";
 			$dbname = "misakanet";
@@ -68,34 +70,79 @@ if (
 				die("连接失败: " . $conconn->connect_error);
 			  }
 					 
-			  $sqlcon = "SELECT count(*) as imgCount FROM background_image";
+			
+			  
+			  
+			  $sqlcon = "SELECT MAX(bgimageid) as imgCount FROM background_image";
 			  $result = $conconn->query($sqlcon);
 			   
 			  if ($result->num_rows > 0) {
 			      // 输出数据
 			      while($row = $result->fetch_assoc()) {
-					  $nextImgID = $row["imgCount"] + 1;
+			  					  $maxImgID = $row["imgCount"];
+			  					  
+			  					  echo "最大的的图片ID为" . $maxImgID. "<br>";
+			  					  
+			  					  
 			      }
 			  } else {
 			      echo "<td colspan='4'>数据库中没有背景图，请先上传</td>";
 			  }
-			  
 			  
 			  
 			  $sqlfind = "SELECT bgimageid FROM background_image";
 			  $result = $conconn->query($sqlfind);
 			  if ($result->num_rows > 0) {
 			      // 输出数据
+				  $i = 0;
+				  echo  "图片ID列表为：";
 			      while($row = $result->fetch_assoc()) {
-			  			if($nextImgID != $row["bgimageid"]){
-							continue;
-						} else {
-							$nextImgID = $nextImgID + 1;
-						}
+					  $i++;
+					  echo $i."-".$row["bgimageid"] . ",";
+					  $imgIdArray[$i] = $row["bgimageid"];
 			      }
 			  } else {
 			      echo "<td colspan='4'>数据库中没有背景图，请先上传</td>";
 			  }
+			  
+			  
+			  // echo "3- ".$imgIdArray[3] . "<br>";
+			  // echo "4- ".$imgIdArray[4] . "<br>";
+			  // echo "5- ".$imgIdArray[5] . "<br>";
+			  // echo "6- ".$imgIdArray[6] . "<br>";
+			  
+			  
+			  $nextImgID = 0;    //插入点
+			  $imgIdFlag = 0;
+			  $numberFlag = 1;
+			  echo  "图片ID数组为：";
+			  for($numberFlag;$numberFlag<=$maxImgID;$numberFlag++){
+				  $imgIdFlag++;
+				  // echo $imgIdArray[$imgIdFlag];
+				 echo $numberFlag." - ".$imgIdArray[$imgIdFlag] . ", ";
+				  if($numberFlag != $imgIdArray[$imgIdFlag]){
+					  echo "<br>在第 ".$numberFlag." - ".$imgIdArray[$imgIdFlag] . "发生插入点异常<br>";
+					  $nextImgID = $numberFlag;
+					  echo "最新的插入点是 ".$nextImgID . "<br>";
+					  
+					  break;
+					  // echo "debug numberFlag here". $nextImgID ."<br>";
+					  
+					  // $imgIdArray[$imgIdFlag] = $imgIdArray[$imgIdFlag - 1];
+					  
+					  // echo "在第 " . $numberFlag . " 时内容与" . $imgIdArray[$imgIdFlag] ."不同";
+				  }
+				  
+			  }
+			  echo "<br>没有异常，本应顺次插入的插入点是 ".$imgIdFlag . "<br>";
+			  if($imgIdFlag == $maxImgID){
+				  echo "但插入点等于最大值，顺次插入至最后<br>";
+				  $nextImgID = $imgIdFlag+1;
+			  }
+			  
+			
+			  
+			
 			  
 			  
 			echo "	
@@ -114,7 +161,7 @@ if (
 			
 			
 			
-			$servername = "localhost";
+			$servername = "localhost:3308";
 			$username = "backGroundImageInserter";
 			$password = "Alicization_002";
 			$dbname = "misakanet";
@@ -133,7 +180,7 @@ if (
 			$stmt->bind_param("is",$nextImgID, $imageURL);
 					 
 			// 设置参数并执行
-			$imageURL = $fileURL ;   /*传参*/
+			$imageURL = $fileURL2 ;   /*传参*/
 			$stmt->execute();  /*执行*/
 					 
 			echo "</br>新记录插入数据库";

@@ -1,6 +1,6 @@
 window.onload = function(){
 	$("#mask").hide();  //隐藏遮罩
-	window.setInterval("opChange()",3000);  //每隔3秒执行一次图片切换函数
+	window.setInterval("opChange()",8000);  //每隔3秒执行一次图片切换函数
 }
 
 

@@ -18,7 +18,7 @@
 			header('Location: bgImgConsolerLogin.php');
 			exit;
 		}
-	?>
+	?> 
 	<head>
 	    <!-- Required meta tags -->
 	    <meta charset="utf-8">
@@ -36,9 +36,9 @@
 		<div class="container">   <!-- boot start tag -->
 			
 			
-			<form action="" method="post">
+		<!-- 	<form action="" method="post">
 				<button type="submit" class="btn btn-danger" onclick="this.form.action='bgImgConsoleLogout.php'">登出</button>
-			</from>
+			</from> -->
 			
 			
 			
@@ -74,7 +74,7 @@
 					  		
 					  		
 					  		<tr>
-					  			<form action="php/background_image_update.php" target="frame1" method="post" enctype="multipart/form-data">
+					  			<form action="background_image_update.php" target="frame1" method="post" enctype="multipart/form-data">
 					  				<td>
 					  					<label for="file" style="display: none;"></label>
 					  					<div class="form-group">
@@ -84,7 +84,7 @@
 					  				<td>
 					  					<button type="submit" name="submit" class="btn btn-primary">上传</button>
 					  				</td>
-					  		  </form>
+								</form>
 					  		</tr>
 					  		
 					  		
