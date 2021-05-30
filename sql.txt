@@ -1,0 +1,76 @@
+CREATE DATABASE misakanet;
+use misakanet;
+/*创建misakanet数据库*/
+
+
+CREATE TABLE IF NOT EXISTS background_image(
+   bgimageid BIGINT UNSIGNED AUTO_INCREMENT,
+   imageURL VARCHAR(1000) NOT NULL,
+   displayOrNot INT DEFAULT 0,     /*用于判断该图片是否要在主页中显示，不显示值为0，其他值为显示*/
+   PRIMARY KEY (bgimageid)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*创建背景图存储数据表*/
+
+
+/*  INSERT INTO background_image ( imageURL ) VALUES (  );  */
+/*  URL格式：img/yyyy/mm/dd/时间戳.png  */
+
+
+
+CREATE USER 'backGroundImageChecker'@'%' IDENTIFIED BY 'CODE001(daoragong)';   /*  创建一个用户backGroundImageChecker  */
+GRANT SELECT ON misakanet.background_image TO 'backGroundImageChecker'@'%';   /* 只授予backGroundImageChecker查询misakanet.background_image表的权限 */
+
+CREATE USER 'backGroundImageInserter'@'%' IDENTIFIED BY 'Alicization_002';   /*  创建一个用户backGroundImageInserter  */
+GRANT INSERT ON misakanet.background_image TO 'backGroundImageInserter'@'%';   /* 只授予backGroundImageInserter插入misakanet.background_image表的权限 */
+
+CREATE USER 'backGroundImageControler'@'%' IDENTIFIED BY '003ThReEzhitaige~';   /*  创建一个用户backGroundImageControler  */
+GRANT UPDATE ON misakanet.background_image TO 'backGroundImageControler'@'%';   /* 授予backGroundImageControler修改misakanet.background_image表的权限 */
+GRANT SELECT ON misakanet.background_image TO 'backGroundImageControler'@'%';	/* 授予backGroundImageControler查询misakanet.background_image表的权限 */
+GRANT DELETE ON misakanet.background_image TO 'backGroundImageControler'@'%';	/* 授予backGroundImageControler查询misakanet.background_image表的权限 */
+
+
+
+/*以下代码将创建 一个含有数据的测试用的用户数据表 和 一个有对该表有所有权限的用户，*/
+/*请在测试结束后使用下方的删表代码删除—————————————————————————————————————————————————————————————————————————————————*/
+/*
+
+CREATE TABLE IF NOT EXISTS user_test(
+	uid BIGINT UNSIGNED AUTO_INCREMENT,
+	email VARCHAR(1000) NOT NULL,
+	callnum VARCHAR(100),
+	password VARCHAR(100) NOT NULL,
+	username VARCHAR(100) DEFAULT 'gooduser',
+	flag INT DEFAULT 2,
+	avatar VARCHAR(1000),
+	aboutme VARCHAR(5000),
+	PRIMARY KEY (uid)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO user_test ( email,password,flag ) VALUES ( "SAdmin@misakanet.fans","123456",0 );
+INSERT INTO user_test ( email,password,flag ) VALUES ( "Admin@misakanet.fans","123456",1 );
+INSERT INTO user_test ( email,password,flag ) VALUES ( "test_user@misakanet.fans","123456",2 );
+
+CREATE USER 'temporaryROOT'@'%' IDENTIFIED BY 'thissipassword';   /*  创建一个用户temporaryROOT  */
+GRANT ALL ON misakanet.user_test TO 'temporaryROOT'@'%';   /* 授予temporaryROOT对misakanet.user_test表的ALL权限 */
+
+
+
+*/
+
+
+
+
+/*删表，删用户代码如下*/
+DROP TABLE user_test;
+REVOKE ALL ON misakanet.user_test FROM 'temporaryROOT'@'%';
+DROP USER 'temporaryROOT'@'%';
+
+
+
+/*测试代码结束————————————————————————————————————————————————————————————————————————————————————————————————————————*/
+
+
+
+
+/**/

@@ -1,0 +1,34 @@
+body{
+	position: relative;
+	margin: 0px;
+	padding: 0px;
+}
+#banner{
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.backGroundImage{
+	position: absolute;
+	left: 0;
+	top: 0;
+	
+	padding: 0px;
+	margin: 0px;
+	
+	height: 100vh;
+	width: 100vw;
+}
+
+
+#mask{
+	position: absolute;
+	left: 0;
+	top: 0;
+	
+	
+	width: 100vw;
+	height: 100vh;
+	background-color: #66ccff;
+}
