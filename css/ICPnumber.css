@@ -1,0 +1,31 @@
+#ICPnumberAtag{
+	text-decoration: none;
+	color: rgba(255,255,255,0.6);
+}
+.ICPnumber{
+	padding: 0;
+	margin: 0;
+	
+	font: small-caps lighter 15px/1.5vw "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+	
+	
+	position: fixed;
+	
+	top: 96%;
+	left: 20px;
+
+	height: 20px;	
+	width: 180px;
+
+	text-align: center;
+	line-height: 20px;	
+
+	color: rgba(255,255,255,0.6);
+
+	border-radius: 5px;	
+	/* font-size: 20px; */
+}
+.ICPnumber:hover{
+	color: #000;
+	background-color: rgba(202, 202, 202, 0.7);
+}

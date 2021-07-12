@@ -30,7 +30,7 @@
 	}
 	
 	
-	$servername = "localhost:3308";
+	$servername = "localhost";
 	$DBusername = "temporaryROOT";
 	$DBpassword = "thissipassword";
 	$dbname = "misakanet";

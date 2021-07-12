@@ -128,7 +128,7 @@
 					  <?php   // 选择图片
 							
 					  
-						  $servername = "localhost:3308";
+						  $servername = "localhost";
 						  $username = "backGroundImageChecker";
 						  $password = "CODE001(daoragong)";
 						  $dbname = "misakanet";
@@ -166,7 +166,7 @@
 								  echo "
 										<tr>
 										  <th scope='row'>".$row["bgimageid"]."</th>
-										  <td><img src='"."http://127.0.0.1/myphp/misakanet_fans_proj".substr($row["imageURL"], 2)."'  alt='".$row["bgimageid"]."' height='100px' /></td>
+										  <td><img src='"."https://www.misakanet.fans".substr($row["imageURL"], 2)."'  alt='".$row["bgimageid"]."' height='100px' /></td>
 										  <td>".$row["displayOrNot"]."</td>
 										</tr>
 								  ";

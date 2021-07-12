@@ -20,7 +20,7 @@
 
 
 
-	$servername = "localhost:3308";
+	$servername = "localhost";
 	  $username = "backGroundImageControler";
 	  $password = "003ThReEzhitaige~";
 	  $dbname = "misakanet";

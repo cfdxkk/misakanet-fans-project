@@ -1,6 +1,8 @@
 window.onload = function(){
 	$("#mask").hide();  //隐藏遮罩
-	window.setInterval("opChange()",8000);  //每隔3秒执行一次图片切换函数
+	window.setInterval("opChange()",12000);  //每隔12000毫秒(12s)执行一次图片切换函数
+	updateClock();    //获取系统时钟
+	window.setInterval("updateClock()", 1000);  //每隔1000毫秒(10s)获取一次系统时钟
 }
 
 

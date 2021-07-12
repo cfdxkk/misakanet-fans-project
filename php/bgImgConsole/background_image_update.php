@@ -44,7 +44,7 @@ if (
 			echo "现在的服务器时间是：".date('Y-m-d H:i:s', time())."</br>";
 			$updatetime = date('YmdHis', time());
 			$fileURL = "../../img/backgroundimage/" . $updatetime . "_" . $_FILES["file"]["name"];     //用一个下划线分割时间戳和处理过的图片原名
-			$fileURL2 = "../img/backgroundimage/" . $updatetime . "_" . $_FILES["file"]["name"];     //用一个下划线分割时间戳和处理过的图片原名
+			$fileURL2 = "../../img/backgroundimage/" . $updatetime . "_" . $_FILES["file"]["name"];     //用一个下划线分割时间戳和处理过的图片原名
 			
 			
 			
@@ -56,7 +56,7 @@ if (
 			
 // 下方开始php连接数据库部分  ————————————————————————————————————————————————————————————
 			
-			$servername = "localhost:3308";
+			$servername = "localhost";
 			$username = "backGroundImageChecker";
 			$password = "CODE001(daoragong)";
 			$dbname = "misakanet";
@@ -161,7 +161,7 @@ if (
 			
 			
 			
-			$servername = "localhost:3308";
+			$servername = "localhost";
 			$username = "backGroundImageInserter";
 			$password = "Alicization_002";
 			$dbname = "misakanet";
