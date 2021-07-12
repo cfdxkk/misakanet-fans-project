@@ -27,5 +27,40 @@ php+mysql的背景图控制台，数据库操作由mysqli实现，控制台登�
 控制台只有管理背景图的功能，如果你有好看的壁纸想要上传，可以联络我以获取管理后台账号密码，QQ：2567240058 或邮箱联络：2567240058@qq.com / b2567240058@gmail.com
 (其实已经写在注释里了，不要搞破坏哦~)
 
+## install this project
+
+`CentOS`
+1. install git
+```
+yum install git
+```
+2. install apache server(httpd)
+```
+[root@servername /]# yum install httpd
+```
+3. set httpd run when server start 
+```
+[root@servername /]# systemctl enable httpd.service
+```
+3.5 check out httpd will run when server start
+```
+[root@servername /]# systemctl is-enabled httpd.service
+
+```
+if you see `enable`, It mean httpd will start when server start
+
+4.restart
+```
+[root@servername /]# reboot
+```
+
+5. git clone
+```
+[root@servername /]# cd /var/www/html
+[root@servername html]# git clone https://github.com/cfdxkk/misakanet-fans-project.git
+```
+
+done!
+
 # 预览图
 [![Wi3tN6.jpg](https://z3.ax1x.com/2021/07/12/Wi3tN6.jpg)](https://imgtu.com/i/Wi3tN6)
