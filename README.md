@@ -32,7 +32,7 @@ php+mysql的背景图控制台，数据库操作由mysqli实现，控制台登�
 `CentOS`
 1. install git
 ```
-yum install git
+[root@servername /]# yum install git
 ```
 2. install apache server(httpd)
 ```
