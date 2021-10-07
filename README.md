@@ -1,4 +1,3 @@
-# 已关停 ShutDonw Now
 # misakanet-fans-project
 这是我练习 `网站服务器部署` `html` `css` `js` `php` `mysql` 的项目，目前实现的功能如下：
 ```
@@ -18,11 +17,11 @@ php+mysql的背景图控制台，数据库操作由mysqli实现，控制台登�
 ```
 
 ## 首页地址：
-[http: misakanet - fans](http://www.misakanet.fans/)  
-[https: misakanet - fans](https://www.misakanet.fans/)
+[http: misakanet - fans (无效)](http://www.misakanet.fans/)  
+[https: misakanet - fans (无效)](https://www.misakanet.fans/)
 ## 管理后台地址：
-[http: misakanet - 背景图控制台](http://www.misakanet.fans/bgImgConsolePad.php)  
-[https: misakanet - 背景图控制台](https://www.misakanet.fans/bgImgConsolePad.php)
+[http: misakanet - 背景图控制台 (无效)](http://www.misakanet.fans/bgImgConsolePad.php)  
+[https: misakanet - 背景图控制台 (无效)](https://www.misakanet.fans/bgImgConsolePad.php)
 
 搞阿里云CDN的时候好像把https证书整丢(坏)了，如果https不能访问就用http试试
 控制台只有管理背景图的功能，如果你有好看的壁纸想要上传，可以联络我以获取管理后台账号密码，QQ：2567240058 或邮箱联络：2567240058@qq.com / b2567240058@gmail.com
