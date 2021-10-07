@@ -30,6 +30,7 @@ php+mysql的背景图控制台，数据库操作由mysqli实现，控制台登�
 ## install this project
 
 `CentOS`
+
 1.install git
 ```
 [root@servername /]# yum install git
