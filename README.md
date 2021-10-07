@@ -54,7 +54,7 @@ if you see `enable`, It mean httpd will start when server start
 [root@servername /]# reboot
 ```
 
-5. git clone
+5 git clone
 ```
 [root@servername /]# cd /var/www/html
 [root@servername html]# git clone https://github.com/cfdxkk/misakanet-fans-project.git
