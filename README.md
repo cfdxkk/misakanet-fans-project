@@ -30,15 +30,15 @@ php+mysql的背景图控制台，数据库操作由mysqli实现，控制台登�
 ## install this project
 
 `CentOS`
-1 install git
+1.install git
 ```
 [root@servername /]# yum install git
 ```
-2 install apache server(httpd)
+2.install apache server(httpd)
 ```
 [root@servername /]# yum install httpd
 ```
-3 set httpd run when server start 
+3.set httpd run when server start 
 ```
 [root@servername /]# systemctl enable httpd.service
 ```
@@ -49,12 +49,12 @@ php+mysql的背景图控制台，数据库操作由mysqli实现，控制台登�
 ```
 if you see `enable`, It mean httpd will start when server start
 
-4 restart
+4.restart
 ```
 [root@servername /]# reboot
 ```
 
-5 git clone
+5.git clone
 ```
 [root@servername /]# cd /var/www/html
 [root@servername html]# git clone https://github.com/cfdxkk/misakanet-fans-project.git
